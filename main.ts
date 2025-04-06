@@ -1,6 +1,6 @@
-import server from "./server/mcp.ts";
-import { createSSEServer } from "./server/sse.ts";
-import { createStdioServer } from "./server/stdio.ts";
+import server from "./src/server/mcp.ts";
+import { createSSEServer } from "./src/server/sse.ts";
+import { createStdioServer } from "./src/server/stdio.ts";
 
 const modeArg = Deno.args.find((arg) => arg.startsWith("--mode="));
 const portArg = Deno.args.find((arg) => arg.startsWith("--port="));
