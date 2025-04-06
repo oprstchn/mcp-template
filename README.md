@@ -7,10 +7,12 @@ A template project for building [Model Control Protocol (MCP)](https://github.co
 - Simple MCP server setup with example tools, resources, and prompts
 - Support for both stdio and SSE transport modes
 - Ready to use with Claude or other MCP compatible AI models
+- Docker support for easy deployment
 
 ## Requirements
 
-- [Deno](https://deno.com/) 1.x or later
+- [Deno](https://deno.com/) 2.2.8 or later
+- Docker (optional, for containerized deployment)
 
 ## Getting Started
 
@@ -23,6 +25,21 @@ deno run --allow-net --allow-read --allow-write --allow-run main.ts --mode=stdio
 
 # Run in SSE mode (for web-based clients)
 deno run --allow-net --allow-read --allow-write --allow-run main.ts --mode=sse --port=8888
+```
+
+## Docker Support
+
+You can also run the server in a Docker container:
+
+```bash
+# Build the Docker image
+docker build -t mcp-template .
+
+# Run in SSE mode (default)
+docker run --rm -p 8888:8888 mcp-template
+
+# Run in stdio mode
+docker run --rm -it mcp-template deno run --allow-net --allow-read --allow-write --allow-run main.ts --mode=stdio
 ```
 
 ## Configuration
